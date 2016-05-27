@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<solr>
+  <!-- This is the new solr.xml, valid from Solr 4.4 and the only valid one after Solr 5 -->
+  <!-- I cannot make this one work yet.-->
+  <str name="adminHandler">${adminHandler:org.apache.solr.handler.admin.CoreAdminHandler}</str>
+  <int name="coreLoadThreads">${coreLoadThreads:3}</int>
+  <!--str name="coreRootDirectory">${coreRootDirectory:solrhome/collection1}</str--> <!-- usually solrHome  -->
+  <str name="managementPath">${managementPath:}</str>
+  <str name="sharedLib">${sharedLib:}</str>
+  <str name="shareSchema">${shareSchema:false}</str>
+  <int name="transientCacheSize">${transientCacheSize:2147483647}</int> <!-- ignored unless cores are defined with transient=true -->
+
+  <solrcloud>
+    <str name="host">${host:}</str>
+    <int name="hostPort">${jetty.port:8983}</int>
+    <str name="hostContext">${hostContext:solr}</str>
+    <int name="zkClientTimeout">${zkClientTimeout:30000}</int>
+    <bool name="genericCoreNodeNames">${genericCoreNodeNames:true}</bool>
+  </solrcloud>
+
+</solr>
