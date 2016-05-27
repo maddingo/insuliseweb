@@ -33,9 +33,9 @@ public class EmbeddedSolrContext {
         return factory;
     }
 
-    @SneakyThrows
-    @Bean
-    public SolrTemplate solrTemplate() {
-        return new SolrTemplate(solrServer().getObject());
-    }
+//    @SneakyThrows
+//    @Bean
+//    public SolrTemplate solrTemplate() {
+//        return new SolrTemplate(solrServer().getObject());
+//    }
 }

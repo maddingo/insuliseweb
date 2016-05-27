@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.Collection;
 import java.util.Collections;
 
@@ -18,12 +19,13 @@ public class HistoryLoggController {
     @Autowired
     private SolrClient solrServer;
 
+    @Resource
+    HistoryLoggRepository repository;
+
     @SneakyThrows
     @RequestMapping("/history")
-    public Collection<HistoryLogg> history() {
+    public Iterable<HistoryLogg> history() {
 
-        SolrParams query = new SolrQuery("*:*");
-        QueryResponse resp = solrServer.query(query);
-        return Collections.emptyList();
+        return repository.findAll();
     }
 }
