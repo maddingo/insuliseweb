@@ -3,6 +3,7 @@ package insuliseweb;
 import lombok.SneakyThrows;
 import org.apache.solr.client.solrj.SolrClient;
 import org.apache.solr.client.solrj.SolrQuery;
+import org.apache.solr.client.solrj.embedded.JettySolrRunner;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.params.SolrParams;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -16,10 +16,10 @@ import org.springframework.util.ResourceUtils;
 import javax.annotation.Resource;
 import java.io.File;
 
+//@Profile("dev")
 @Configuration
-@Profile("dev")
 @PropertySource("classpath:application.properties")
-@EnableSolrRepositories(basePackages={"insuliseweb"}, multicoreSupport=true)
+@EnableSolrRepositories(basePackages={"insuliseweb"}, multicoreSupport=false)
 public class EmbeddedSolrContext {
 
     @Resource
@@ -27,15 +27,15 @@ public class EmbeddedSolrContext {
 
     @SneakyThrows
     @Bean
-    public FactoryBean<SolrClient> solrServer() {
+    public FactoryBean<SolrClient> solrClient() {
         EmbeddedSolrServerFactoryBean factory = new EmbeddedSolrServerFactoryBean();
         factory.setSolrHome(environment.getRequiredProperty("solr.solr.home"));
         return factory;
     }
 
-//    @SneakyThrows
-//    @Bean
-//    public SolrTemplate solrTemplate() {
-//        return new SolrTemplate(solrServer().getObject());
-//    }
+    @SneakyThrows
+    @Bean
+    public SolrTemplate solrTemplate() {
+        return new SolrTemplate(solrClient().getObject());
+    }
 }
