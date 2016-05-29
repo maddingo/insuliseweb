@@ -2,19 +2,13 @@ package insuliseweb;
 
 import lombok.SneakyThrows;
 import org.apache.solr.client.solrj.SolrClient;
-import org.apache.solr.client.solrj.SolrQuery;
-import org.apache.solr.client.solrj.embedded.JettySolrRunner;
-import org.apache.solr.client.solrj.response.QueryResponse;
-import org.apache.solr.common.params.SolrParams;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
-import java.util.Collection;
-import java.util.Collections;
 
 @RestController
+@RequestMapping("/history")
 public class HistoryLoggController {
 
     @Autowired
@@ -24,9 +18,24 @@ public class HistoryLoggController {
     HistoryLoggRepository repository;
 
     @SneakyThrows
-    @RequestMapping("/history")
+    @RequestMapping(method = RequestMethod.GET)
     public Iterable<HistoryLogg> history() {
 
         return repository.findAll();
+    }
+
+    @RequestMapping(method = RequestMethod.POST)
+    public void addHistoryLog(@RequestBody HistoryLogg loggEntry) {
+        repository.save(loggEntry);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable("id") String id) {
+        repository.delete(id);
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE)
+    public void deleteAll() {
+        repository.deleteAll();
     }
 }

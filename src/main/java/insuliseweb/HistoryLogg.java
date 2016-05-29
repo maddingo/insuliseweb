@@ -1,14 +1,19 @@
 package insuliseweb;
 
+import lombok.Data;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import org.apache.solr.client.solrj.beans.Field;
+import org.springframework.data.solr.core.mapping.SolrDocument;
 
 import java.util.Date;
 
-@RequiredArgsConstructor
+@Data
+@SolrDocument
 public class HistoryLogg {
-    private final long id;
-    private final Date loggDate;
-    private final String message;
-    private final Double bloodSugar;
-    private final Double carbs;
+    private String id;
+    private Date loggDate;
+    private String message;
+    private Double bloodSugar;
+    private Double carbs;
 }
