@@ -1,1 +1,1 @@
-springboot: java $JAVA_OPTS -cp target/classes:target/dependency/* insuliseweb.Main
+springboot: java $JAVA_OPTS -cp target/classes:target/dependency/* insuliseweb.Application
