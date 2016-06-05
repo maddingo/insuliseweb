@@ -1,1 +1,1 @@
-springboot: java $JAVA_OPTS -cp target/classes:target/dependency/* insuliseweb.Application
+web: java -Dserver.port=$PORT -cp target/classes:target/dependency/* insuliseweb.Application
