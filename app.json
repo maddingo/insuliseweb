@@ -1,0 +1,15 @@
+{
+  "name": "insuliseweb",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
