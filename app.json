@@ -3,8 +3,17 @@
   "scripts": {
   },
   "env": {
+    "SPRING_PROFILE": {
+      "description": "Spring profile (dev, stage, production)",
+      "required": true,
+      "value": "dev",
+    }
   },
   "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "free"
+    }
   },
   "addons": [
 
