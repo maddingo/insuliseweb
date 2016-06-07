@@ -1,7 +1,7 @@
 package insuliseweb;
 
-import org.springframework.data.solr.repository.SolrCrudRepository;
+import org.springframework.data.elasticsearch.repository.ElasticsearchCrudRepository;
 
-public interface HistoryLoggRepository extends SolrCrudRepository<HistoryLogg, String> {
+public interface HistoryLoggRepository extends ElasticsearchCrudRepository<HistoryLogg, String> {
 
 }
