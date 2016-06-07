@@ -1,8 +1,6 @@
 package insuliseweb;
 
 import lombok.SneakyThrows;
-import org.apache.solr.client.solrj.SolrClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -11,16 +9,12 @@ import javax.annotation.Resource;
 @RequestMapping("/history")
 public class HistoryLoggController {
 
-    @Autowired
-    private SolrClient solrServer;
-
     @Resource
     HistoryLoggRepository repository;
 
     @SneakyThrows
     @RequestMapping(method = RequestMethod.GET)
     public Iterable<HistoryLogg> history() {
-
         return repository.findAll();
     }
 

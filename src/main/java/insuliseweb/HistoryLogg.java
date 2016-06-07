@@ -1,15 +1,12 @@
 package insuliseweb;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import org.apache.solr.client.solrj.beans.Field;
-import org.springframework.data.solr.core.mapping.SolrDocument;
+import org.springframework.data.elasticsearch.annotations.Document;
 
 import java.util.Date;
 
 @Data
-@SolrDocument
+@Document(indexName = "history", type = "history")
 public class HistoryLogg {
     private String id;
     private Date loggDate;
