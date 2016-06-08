@@ -7,20 +7,20 @@ import javax.annotation.Resource;
 
 @RestController
 @RequestMapping("/history")
-public class HistoryLoggController {
+public class InsuliseEntryController {
 
     @Resource
-    HistoryLoggRepository repository;
+    InsuliseEntryRepository repository;
 
     @SneakyThrows
     @RequestMapping(method = RequestMethod.GET)
-    public Iterable<HistoryLogg> history() {
+    public Iterable<? extends InsuliseEntry> history() {
         return repository.findAll();
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public void addHistoryLog(@RequestBody HistoryLogg loggEntry) {
-        repository.save(loggEntry);
+    public void addHistoryLog(@RequestBody InsuliseEntry entry) {
+        repository.save(entry);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
