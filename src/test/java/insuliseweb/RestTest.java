@@ -1,5 +1,6 @@
 package insuliseweb;
 
+import mockit.Tested;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,7 +18,7 @@ import static org.junit.Assert.assertThat;
 @ContextConfiguration(classes = Application.class)
 @PropertySource("classpath:application.properties")
 public class RestTest {
-    @Autowired
+    @Autowired @Tested
     InsuliseEntryRepository repository;
 
     @After

@@ -17,8 +17,4 @@ public class Application {
             }
         }
     }
-
-    private Application() {
-        // not instantiable
-    }
 }
