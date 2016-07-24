@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 @Document(indexName = "insulise", type = "insulise")
 @Data
@@ -19,7 +20,7 @@ public class InsuliseEntry {
     @Id
     private String id;
 
-    @Field
+    @Field(type = FieldType.Date)
     private java.util.Date timestamp;
 
     private String message;

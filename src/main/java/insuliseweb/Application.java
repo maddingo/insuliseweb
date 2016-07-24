@@ -9,12 +9,6 @@ public class Application {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext ctx = null;
-        try {
-            ctx = SpringApplication.run(Application.class, args);
-        } finally {
-            if (ctx != null) {
-                ctx.close();
-            }
-        }
+        ctx = SpringApplication.run(Application.class, args);
     }
 }
