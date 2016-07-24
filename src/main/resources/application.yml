@@ -1,0 +1,10 @@
+spring:
+  data:
+    elasticsearch:
+      properties:
+        path:
+          home: target/elastic
+#spring.data.elasticsearch.properties.path.home=target/elastic
+#spring.data.elasticsearch.properties.data.path=target/elastic/data
+#spring.data.elasticsearch.properties.path.logs=target/elastic/logs
+#spring.data.elasticsearch.properties.transport.tcp.connect_timeout=120s
